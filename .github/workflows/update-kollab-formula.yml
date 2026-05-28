@@ -1,0 +1,144 @@
+name: update kollab formula
+
+on:
+  repository_dispatch:
+    types:
+      - pypi-release
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Kollab version to publish to the tap
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-kollab-formula
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve version
+        id: version
+        env:
+          DISPATCH_VERSION: ${{ github.event.client_payload.version }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          version="${DISPATCH_VERSION:-$INPUT_VERSION}"
+          version="${version#v}"
+          if [ -z "$version" ]; then
+            echo "Missing version from repository_dispatch payload or workflow input" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Update formula
+        run: python .github/scripts/update_formula_from_pypi.py --version "${{ steps.version.outputs.version }}"
+
+      - name: Check Ruby syntax
+        run: ruby -c Formula/kollab.rb
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet -- Formula/kollab.rb; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Formula already points at ${{ steps.version.outputs.version }}"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload formula
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: kollab-formula
+          path: Formula/kollab.rb
+
+  validate:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    strategy:
+      matrix:
+        os: [macos-15-intel, macos-26]
+        include:
+          - os: ubuntu-latest
+            container: ghcr.io/homebrew/brew:main
+    runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container }}
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: kollab-formula
+          path: Formula
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ matrix.os }}-rubygems-
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - run: brew test-bot --only-tap-syntax
+
+      - run: brew test-bot --only-formulae
+
+  commit:
+    needs:
+      - update
+      - validate
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: kollab-formula
+          path: Formula
+
+      - name: Commit formula update
+        env:
+          VERSION: ${{ needs.update.outputs.version }}
+        run: |
+          if git diff --quiet -- Formula/kollab.rb; then
+            echo "Formula already points at $VERSION"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/kollab.rb
+          git commit -m "Update kollab to $VERSION"
+          git push origin HEAD:main
