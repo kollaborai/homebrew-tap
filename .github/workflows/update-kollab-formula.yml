@@ -25,6 +25,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.decide.outputs.changed }}
+      version: ${{ steps.decide.outputs.version }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,40 +37,118 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Resolve version
-        id: version
+      - name: Decide target version
+        id: decide
         env:
           DISPATCH_VERSION: ${{ github.event.client_payload.version }}
           INPUT_VERSION: ${{ inputs.version }}
         run: |
-          version="${DISPATCH_VERSION:-$INPUT_VERSION}"
-          version="${version#v}"
-          if [ -z "$version" ]; then
+          target="${DISPATCH_VERSION:-$INPUT_VERSION}"
+          target="${target#v}"
+          if [ -z "$target" ]; then
             # Scheduled run (or blank manual input): self-heal to PyPI's latest.
-            version="$(python .github/scripts/update_formula_from_pypi.py --print-latest)"
+            target="$(python .github/scripts/update_formula_from_pypi.py --print-latest)"
           fi
-          if [ -z "$version" ]; then
-            echo "Could not determine a version to publish" >&2
+          if [ -z "$target" ]; then
+            echo "Could not determine a target version" >&2
             exit 1
           fi
-          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          current="$(grep -oE 'kollab-[0-9]+\.[0-9]+\.[0-9]+[A-Za-z0-9._]*-py3-none-any\.whl' \
+            Formula/kollab.rb | head -1 | sed -E 's/^kollab-(.+)-py3-none-any\.whl$/\1/')"
+
+          echo "version=$target" >> "$GITHUB_OUTPUT"
+          # Only act when the kollab *version* actually moves. This keeps the
+          # hourly schedule a true no-op and stops transitive-dependency churn
+          # (regenerating every run would re-pin sub-deps whenever any release).
+          if [ "$target" = "$current" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Formula already at kollab $target; nothing to do."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Updating kollab $current -> $target"
+          fi
 
       - name: Update formula
-        run: python .github/scripts/update_formula_from_pypi.py --version "${{ steps.version.outputs.version }}"
+        if: steps.decide.outputs.changed == 'true'
+        run: python .github/scripts/update_formula_from_pypi.py --version "${{ steps.decide.outputs.version }}"
 
       - name: Check Ruby syntax
+        if: steps.decide.outputs.changed == 'true'
         run: ruby -c Formula/kollab.rb
 
-      # Commit straight to main when the formula actually changed. The push
-      # triggers brew test-bot (tests.yml) for full macOS install validation.
-      # The generator is deterministic (sorted resources) so an unchanged
-      # version is a no-op and the hourly schedule never churns.
-      - name: Commit if changed
+      - name: Upload formula
+        if: steps.decide.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: kollab-formula
+          path: Formula/kollab.rb
+
+  # macOS validation must run *inside this workflow* before committing: a
+  # github-actions[bot] push (GITHUB_TOKEN) does NOT trigger tests.yml, so we
+  # cannot rely on a post-push test-bot to catch a broken bump.
+  validate:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    runs-on: macos-26
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: kollab-formula
+          path: Formula
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v5
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - run: brew test-bot --only-tap-syntax
+
+      # Install/test the regenerated formula by path -- works on a schedule run
+      # where `brew test-bot --only-formulae` (git-diff based) finds no change.
+      - name: Install and test formula
+        run: |
+          brew install --formula --verbose ./Formula/kollab.rb
+          brew test --formula ./Formula/kollab.rb
+
+  commit:
+    needs:
+      - update
+      - validate
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: kollab-formula
+          path: Formula
+
+      - name: Commit formula update
         env:
-          VERSION: ${{ steps.version.outputs.version }}
+          VERSION: ${{ needs.update.outputs.version }}
         run: |
           if git diff --quiet -- Formula/kollab.rb; then
-            echo "Formula already points at $VERSION; nothing to do."
+            echo "Formula already points at $VERSION"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -75,4 +156,3 @@ jobs:
           git add Formula/kollab.rb
           git commit -m "Update kollab to $VERSION"
           git push origin HEAD:main
-          echo "Committed kollab $VERSION (push triggers brew test-bot for macOS validation)."
