@@ -215,6 +215,10 @@ def resolve_wheels(version: str) -> list[tuple[str, str, str]]:
         resources.append((project, url, sha))
         seen.add(project)
 
+    # Deterministic order so re-running on an unchanged version produces a
+    # byte-identical formula -- otherwise pip's nondeterministic download order
+    # would make the hourly self-heal churn a new commit every run.
+    resources.sort(key=lambda item: item[0])
     return resources
 
 
