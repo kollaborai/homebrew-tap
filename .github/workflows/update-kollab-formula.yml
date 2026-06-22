@@ -7,9 +7,13 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Kollab version to publish to the tap
-        required: true
+        description: Kollab version to publish to the tap (blank = latest on PyPI)
+        required: false
         type: string
+  schedule:
+    # Hourly self-heal: reconcile the formula against PyPI's latest so a missed
+    # or permanently-failed release dispatch can never leave the tap stranded.
+    - cron: "17 * * * *"
 
 permissions:
   contents: write
@@ -40,7 +44,11 @@ jobs:
           version="${DISPATCH_VERSION:-$INPUT_VERSION}"
           version="${version#v}"
           if [ -z "$version" ]; then
-            echo "Missing version from repository_dispatch payload or workflow input" >&2
+            # Scheduled run (or blank manual input): self-heal to PyPI's latest.
+            version="$(python .github/scripts/update_formula_from_pypi.py --print-latest)"
+          fi
+          if [ -z "$version" ]; then
+            echo "Could not determine a version to publish" >&2
             exit 1
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
