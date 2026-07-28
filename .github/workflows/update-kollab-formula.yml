@@ -127,7 +127,7 @@ jobs:
           # Homebrew rejects standalone formula files (./Formula/kollab.rb).
           # Reference the formula through the tap namespace instead.
           brew install --formula --verbose kollaborai/tap/kollab
-          brew test --formula kollaborai/tap/kollab
+          brew test kollaborai/tap/kollab
 
   commit:
     needs:
