@@ -124,8 +124,10 @@ jobs:
       # where `brew test-bot --only-formulae` (git-diff based) finds no change.
       - name: Install and test formula
         run: |
-          brew install --formula --verbose ./Formula/kollab.rb
-          brew test --formula ./Formula/kollab.rb
+          # Homebrew rejects standalone formula files (./Formula/kollab.rb).
+          # Reference the formula through the tap namespace instead.
+          brew install --formula --verbose kollaborai/tap/kollab
+          brew test --formula kollaborai/tap/kollab
 
   commit:
     needs:
