@@ -6,8 +6,8 @@ class Kollab < Formula
 
   desc "Terminal AI workspace with hooks, plugins, providers, and agents"
   homepage "https://github.com/kollaborai/kollab"
-  url "https://files.pythonhosted.org/packages/2c/54/f074bb00f5c1855f0485a0cca1167c68a040aa8163251fd5a805e2a32309/kollab-0.5.20-py3-none-any.whl"
-  sha256 "bc804b972700e621c210129c0d318902fe0260aacd3f84127c504c0a4e327994"
+  url "https://files.pythonhosted.org/packages/83/24/57b949b1e1c24d9c751abce78dcdebda6857a7791767adf4bc6b5ad4f939/kollab-0.5.23-py3-none-any.whl"
+  sha256 "6a434f9541a4905fe0c251e82b2e982175553fd125986a6bfa227d4fe041a4db"
   license "MIT"
 
   depends_on arch: :arm64
@@ -23,8 +23,8 @@ class Kollab < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/55/b2/2aac325583aaa1353045f96dffa586d8a34e8322e14a7ba49cffeb103ab4/aiohttp-3.14.1-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "27fd7c91e51729b4f7e1577865fa6d34c9adccbc39aabe9000285b48af9f0ec2"
+    url "https://files.pythonhosted.org/packages/30/07/4bbc222cc8dbe31d4c3e8a5baad2286e4d42026ac0c570027b89afce6344/aiohttp-3.14.3-cp312-cp312-macosx_11_0_arm64.whl"
+    sha256 "617105e2c3018ee38d0c8ce5ee3c84f621a6d8b9f723202aacaff28449ca91ee"
   end
 
   resource "aiosignal" do
@@ -33,18 +33,18 @@ class Kollab < Formula
   end
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl"
-    sha256 "571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"
+    url "https://files.pythonhosted.org/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl"
+    sha256 "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
   end
 
   resource "annotated-types" do
-    url "https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl"
-    sha256 "1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"
+    url "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl"
+    sha256 "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/b0/7b/90df4a0a816d98d6ea26f559d87836d494a2cf1fcf063be67df50a7bcc30/anyio-4.14.1-py3-none-any.whl"
-    sha256 "4e5533c5b8ff0a24f5d7a176cbe6877129cd183893f66b537f8f227d10527d72"
+    url "https://files.pythonhosted.org/packages/da/35/f2287558c17e29fafc8ef3daf819bb9834061cfa43bff8014f7df7f63bdc/anyio-4.14.2-py3-none-any.whl"
+    sha256 "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"
   end
 
   resource "attrs" do
@@ -53,18 +53,23 @@ class Kollab < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl"
-    sha256 "2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db"
+    url "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl"
+    sha256 "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/df/a2/781b623f57358e360d62cdd7a8c681f074a71d445418a776eef0aadb4ab4/cffi-2.0.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "8eca2a813c1cb7ad4fb74d368c2ffbbb4789d377ee5bb8df98373c2cc0dee76c"
+    url "https://files.pythonhosted.org/packages/4b/92/e7bb136ad6b5352603732cf907ef862ca103f20f2031c1735a46300c20c9/cffi-2.1.0-cp312-cp312-macosx_11_0_arm64.whl"
+    sha256 "78474632761faa0fb96f30b1c928c84ebcf68713cbb80d15bab09dfe61640fde"
   end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-8.4.2-py3-none-any.whl"
     sha256 "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/9b/22/adf66990e63584a68dfb50c24f48a125c07b1699899381c8151e63ed458c/cryptography-49.0.0-cp311-abi3-macosx_11_0_arm64.whl"
+    sha256 "966fe0e9c67490071f14c0d2b1cb2dfb3023c5ce39457343931415f08382f2db"
   end
 
   resource "distro" do
@@ -73,8 +78,8 @@ class Kollab < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/9e/7c/8e3c6ad324ea5cb36604fc3f968554887891c316d9dfde57761611d907ad/fastapi-0.139.0-py3-none-any.whl"
-    sha256 "cf15e1e9e667ddb0ad63811e60bd11390d1aac838ca4a7a23f421807b2308189"
+    url "https://files.pythonhosted.org/packages/84/4e/f9e8c762ef5e05c40482131e3d5e8b36bca13fa127578261f1d6b35a25d4/fastapi-0.140.13-py3-none-any.whl"
+    sha256 "8b017110e1e9f30a95e8bdb8f71fbe2f0fe3af5717109e5b14f9e069df54f6d4"
   end
 
   resource "frozenlist" do
@@ -118,8 +123,13 @@ class Kollab < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/96/9a/982e48afcffcd727a9144506720ffd4224b6b7e355c98641866f38b7c043/jaraco_functools-4.5.0-py3-none-any.whl"
-    sha256 "79ce39246eddbde4b3a03b77ea5f0f7878dc669b166a66cf3fa8e266aa3fa2f4"
+    url "https://files.pythonhosted.org/packages/02/36/ecc85bc96c273dc8a11273ed4782272975e6338d4a3e9228621175edf0e3/jaraco_functools-4.6.0-py3-none-any.whl"
+    sha256 "99e3dc0060c5cbe8fcd1cdb36258e2a65ca40f1566b2033b12abb1bb44dd3c30"
+  end
+
+  resource "jeepney" do
+    url "https://files.pythonhosted.org/packages/b2/a3/e137168c9c44d18eff0376253da9f1e9234d0239e0ee230d2fee6cea8e55/jeepney-0.9.0-py3-none-any.whl"
+    sha256 "97e5714520c16fc0a45695e5365a2e11b81ea79bba796e26f9f1d178cb182683"
   end
 
   resource "jiter" do
@@ -133,48 +143,48 @@ class Kollab < Formula
   end
 
   resource "kollabor-agent" do
-    url "https://files.pythonhosted.org/packages/fb/f1/975e7fd745810cfffb5edc49e826cdbe9c944c46efcdf8152a9cff265821/kollabor_agent-0.5.20-py3-none-any.whl"
-    sha256 "d637c1e1e7fed6572e43f216edd91f9de01ac6d48f95a02e6613b9d366891cf5"
+    url "https://files.pythonhosted.org/packages/42/9d/ef3c05f1060904c4299950206fbb27a2e704d536bc3f70295b1049e8ecab/kollabor_agent-0.5.23-py3-none-any.whl"
+    sha256 "d4ebbdb35641c7f0e9f83daf36a6c4939ca7dbbc427ec68927c6b99c30fdb419"
   end
 
   resource "kollabor-ai" do
-    url "https://files.pythonhosted.org/packages/49/83/6db7b8416a9255a09316a3257df5765570f6d1f523666213a7f4b3970e43/kollabor_ai-0.5.20-py3-none-any.whl"
-    sha256 "8222ad58f9b897d7c3ae5e834c31e03d42bac117b29cc2cfd1f29f4f6825da9b"
+    url "https://files.pythonhosted.org/packages/cb/20/f5c05d3e337e7d6d7a79d21b8daff746371b9f1d43bbf62a154db4e8fb4a/kollabor_ai-0.5.23-py3-none-any.whl"
+    sha256 "aec8374214e1f7155b504c90c5fce158c1ce8ff803c503611bb1447a8cc49fbf"
   end
 
   resource "kollabor-config" do
-    url "https://files.pythonhosted.org/packages/4d/c2/b35c00f66a1e0d821090d32512f65adf27b2e8ac47c42c96f621d3b30690/kollabor_config-0.5.20-py3-none-any.whl"
-    sha256 "d6f9ffc2a1a11fc88c0b7475a734dd0377424e271273b1ade24dd99a25696526"
+    url "https://files.pythonhosted.org/packages/ad/85/bb6a89a92700061b76e182139b2fd24007b62d1a9e9a4ab00ba6623c310a/kollabor_config-0.5.23-py3-none-any.whl"
+    sha256 "b4e4996eb2d2acaea807945e02116ef50c305581dc2b46b7413e63c4995fd5dd"
   end
 
   resource "kollabor-engine" do
-    url "https://files.pythonhosted.org/packages/a9/4e/431dc68c00a162f885feb87d45c5e8273f4f4f7277f50713b1987e63f8b5/kollabor_engine-0.5.20-py3-none-any.whl"
-    sha256 "c68561df45be0956116c746bbd08d5501a0062797d48b4da55c6d95dcdb01286"
+    url "https://files.pythonhosted.org/packages/06/6b/0f9cb0709ac5d1b57e24846efcddeeb4e11c34fc6c61a25ab7795a9ce747/kollabor_engine-0.5.23-py3-none-any.whl"
+    sha256 "1ba6700becdacfad61d46d11192db87a7387fd27428d8ac442c36ab86b0e0bed"
   end
 
   resource "kollabor-events" do
-    url "https://files.pythonhosted.org/packages/4b/3c/56ae88673f0122f3bf45fad1550be1fa3a70fdfdf34983546e43d58e5a2a/kollabor_events-0.5.20-py3-none-any.whl"
-    sha256 "6751ed28d3527ccadf250b68b664cab205298287a1dfef8913d639aa431512e5"
+    url "https://files.pythonhosted.org/packages/ea/d4/6bc19bea4e2901e05846faaf94220bc7e6d2596aef553796de79f21cb247/kollabor_events-0.5.23-py3-none-any.whl"
+    sha256 "63c83be569eb033c4a371d304dde24bc092700a813d6bf9cac68474a1397e47e"
   end
 
   resource "kollabor-plugins" do
-    url "https://files.pythonhosted.org/packages/d3/66/bcfb682041d42326330019f5e3a8e46beec749e8404a830127d4c632a179/kollabor_plugins-0.5.20-py3-none-any.whl"
-    sha256 "da2d2a66fd637964bde12e0c6c4114d80e04493278667b3617e926f1402781d0"
+    url "https://files.pythonhosted.org/packages/66/bc/03a600e49eafc8cc370124ebe5b8f9c6ad94f5d9a9649d5276b92622c96a/kollabor_plugins-0.5.23-py3-none-any.whl"
+    sha256 "e95d2bcf1ce7a6f0e1c1009e460377d6cba713af36a0ffe3fe9290f4bab3924b"
   end
 
   resource "kollabor-rpc" do
-    url "https://files.pythonhosted.org/packages/bb/6b/bad42eb50387399e996ffee180346dadf3a5e9e0721052cfad67e27db6fe/kollabor_rpc-0.5.20-py3-none-any.whl"
-    sha256 "bbbc6ddb70e1913d97910a0a8fc5e48375646a6a552dc28aa274b8be5feaf99b"
+    url "https://files.pythonhosted.org/packages/e7/e5/a1604172712f1f867b51edef94a56a78fe16522f5d2168e06f1616eb3a07/kollabor_rpc-0.5.23-py3-none-any.whl"
+    sha256 "47e5e3a6971a8af5cca80e82b8d54ac00f894e0118748f22d37f72bbf5cb93d5"
   end
 
   resource "kollabor-tui" do
-    url "https://files.pythonhosted.org/packages/0b/c3/99f7afce849aaf8d291c2ea76d7f08ccb9f843f07cd339e8df859f5f8359/kollabor_tui-0.5.20-py3-none-any.whl"
-    sha256 "0fabd6e4536b3ed14f731e51c4619cb729cdf9b3b675c04cd96ad8938d7c3235"
+    url "https://files.pythonhosted.org/packages/64/f3/3419f8c9a1325c11fb82e722d9f5060fa9a0aa0e09ee03ab4026bf3cab3c/kollabor_tui-0.5.23-py3-none-any.whl"
+    sha256 "43fa8deb68c08631c03b604b0a050f62d999bd2b785045e8d39131f8cd2a9b93"
   end
 
   resource "kollabor-webui" do
-    url "https://files.pythonhosted.org/packages/00/b8/2c79960253c56480d32c3bfe012f9a13bd45b712562e331d17cdf9629acc/kollabor_webui-0.5.20-py3-none-any.whl"
-    sha256 "55782bf4650bac116e175aebff0776f1ff29fd734942f2982ac9809fa1572349"
+    url "https://files.pythonhosted.org/packages/62/1d/8db4c7293a4deb771268d49ee597cd76690106874ea2a4338b98315c7db9/kollabor_webui-0.5.23-py3-none-any.whl"
+    sha256 "8d14b2e35dc044180e7b781cc1e22f0f4196f9ff526d6a829c8d2f6e34f8db41"
   end
 
   resource "more-itertools" do
@@ -188,8 +198,8 @@ class Kollab < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/ae/f4/561ed79fd94876160018a5e75254cfcb9b0e62d4dded9dcb20072e86d623/openai-2.44.0-py3-none-any.whl"
-    sha256 "0a2a3ab2e29aeda368700f662ff9ba0f9df17ba4c54577a64e08b8115a3cc0ad"
+    url "https://files.pythonhosted.org/packages/b1/ca/53357e460a1172e831ecbe43dd0c37342b7211a1eb09f4cf21a412adbbdf/openai-2.49.0-py3-none-any.whl"
+    sha256 "b694201eaa42a1ccf2aa125fe29458150108fb22df1abfb55d7188599da81d8c"
   end
 
   resource "packaging" do
@@ -237,14 +247,19 @@ class Kollab < Formula
     sha256 "fc09d0aa354569bc501d4e787133afc08552722d3ab34836a80547331bb5d4a0"
   end
 
+  resource "secretstorage" do
+    url "https://files.pythonhosted.org/packages/b7/46/f5af3402b579fd5e11573ce652019a67074317e18c1935cc0b4ba9b35552/secretstorage-3.5.0-py3-none-any.whl"
+    sha256 "0ce65888c0725fcb2c5bc0fdb8e5438eece02c523557ea40ce0703c266248137"
+  end
+
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl"
     sha256 "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/78/75/c88d3f5dafd59c791da1ce27650d30bf5b70cbf1cbf01cd00e5f9e360915/sse_starlette-3.4.5-py3-none-any.whl"
-    sha256 "e71bad53323f65573c3864a6c3bd0c1eb6e5f092b2e48082b0c35927d19ca296"
+    url "https://files.pythonhosted.org/packages/49/36/e10c1d1b7ca881d2625db2ec28508578499187bb1c389952c398474e1834/sse_starlette-3.4.6-py3-none-any.whl"
+    sha256 "56217ab4c9a9f9c5db7b21e08732d3e7c2b807f45231ad23de0551a24c4a41f6"
   end
 
   resource "starlette" do
@@ -253,8 +268,8 @@ class Kollab < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/d8/8e/bb97bb0c71802080bfc8952937d174e49cfc50de5c951dd47b2496f0dcdb/tqdm-4.68.3-py3-none-any.whl"
-    sha256 "39832cc2def2789a6f29df83f172db7416cea70052c0907a57801c5f2fdccb03"
+    url "https://files.pythonhosted.org/packages/f9/1c/01bfd571a64e7f270e6bab5e33777debe0edc56759233ce84f27dec92d14/tqdm-4.70.0-py3-none-any.whl"
+    sha256 "7f585706bfddbdebf89daac705b2dfcc16890130727d3197ca62c732b4310953"
   end
 
   resource "typing-extensions" do
@@ -268,8 +283,8 @@ class Kollab < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/88/fa/e1388bbcf24ef3274f45c0c1c7b501fd14971037c1b6ee23610553307497/uvicorn-0.49.0-py3-none-any.whl"
-    sha256 "ba3d14c3ee7e41c6c654c46c9eb489d33213cdd30aa1696eab1374337c13f68f"
+    url "https://files.pythonhosted.org/packages/45/ec/dbb7e5a6b91f86bfb9eb7d2988a2730907b6a729875b949c7f022e8b88fa/uvicorn-0.51.0-py3-none-any.whl"
+    sha256 "5d38af6cd620f2ae3849fb44fd4879e0890aa1febe8d47eb355fb45d93fe6a5b"
   end
 
   resource "uvloop" do
@@ -283,13 +298,13 @@ class Kollab < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/40/1e/9771421ac2286eaab95b8575b0cb701ae3663abf8b5e1f64f1fd90d0a673/websockets-16.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "86890e837d61574c92a97496d590968b23c2ef0aeb8a9bc9421d174cd378ae39"
+    url "https://files.pythonhosted.org/packages/73/e3/fe2d498c64dea0095c9a9f9a351af4cd6eef31b618395582bc1f38ba45ff/websockets-16.1.1-cp312-cp312-macosx_11_0_arm64.whl"
+    sha256 "01fbdcbac298efe19360b94bc0039c8f746f0220ba570f327577bfee81059175"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/29/b6/170e2b8d4e3bc30e6bfdcca53556537f5bf595e938632dfcb059311f3ff6/yarl-1.24.2-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "8ae44649b00947634ab0dab2a374a638f52923a6e67083f2c156cd5cbd1a881d"
+    url "https://files.pythonhosted.org/packages/ea/b4/05b4131c407006cd1e410e9c6539f16a0945724677e5364447313c15ea3e/yarl-1.24.5-cp312-cp312-macosx_11_0_arm64.whl"
+    sha256 "9d399bdcfb4a0f659b9b3788bbc89babe63d9a6a65aacdf4d4e7065ff2e6316c"
   end
 
   def install
