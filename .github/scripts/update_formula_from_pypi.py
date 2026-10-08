@@ -37,9 +37,10 @@ TARGET_ABI = "cp312"
 PROJECT = "kollab"
 
 # PyPI propagation budget: poll up to RETRY_ATTEMPTS times, RETRY_SLEEP apart
-# (~5 min total) before giving up. Long-published versions resolve on the
+# (~15 min total) before giving up. pip's index lagged the release by more than
+# 5 min for both 0.13.0 and 0.13.1. Long-published versions resolve on the
 # first try, so this only adds latency right after a fresh release.
-RETRY_ATTEMPTS = 20
+RETRY_ATTEMPTS = 60
 RETRY_SLEEP_SECONDS = 15
 
 
