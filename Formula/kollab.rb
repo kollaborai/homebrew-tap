@@ -6,8 +6,8 @@ class Kollab < Formula
 
   desc "Terminal AI workspace with hooks, plugins, providers, and agents"
   homepage "https://github.com/kollaborai/kollab"
-  url "https://files.pythonhosted.org/packages/0a/7f/5cb07bb2973a3a89be7c878e948a45312177bf6066899471c4b2ac209b03/kollab-0.16.0-py3-none-any.whl"
-  sha256 "aefbcb4f91401f88ca741295735d5c5e81d9b55e3930904344f896f4f8b6c840"
+  url "https://files.pythonhosted.org/packages/f9/e0/f749875abbfa1d3a62cb88cc35efce60f2b0e8ea7b1628854e0b19073a07/kollab-0.16.1-py3-none-any.whl"
+  sha256 "f905f5778100da293e25571c8084bae5122f8dae1875f04adae0b5f512a14eda"
   license "MIT"
 
   depends_on arch: :arm64
@@ -178,48 +178,48 @@ class Kollab < Formula
   end
 
   resource "kollabor-agent" do
-    url "https://files.pythonhosted.org/packages/64/1f/698e384914587e2b9aa19685e93b92ce82f1422177e6ddc3c4fabac9a6a1/kollabor_agent-0.16.0-py3-none-any.whl"
-    sha256 "e4d3eb548814f7dd5b6f19d30c03d04ddcbfe2f3c238ca8912375eeba2ee830d"
+    url "https://files.pythonhosted.org/packages/67/f3/9d7cfb9113c31543c73570a27be52718d4ede0a02d727439230b91503b07/kollabor_agent-0.16.1-py3-none-any.whl"
+    sha256 "8827bb1e69b076001c53a4d75ccd3f68953122227907fdf77f48d0bf434dd943"
   end
 
   resource "kollabor-ai" do
-    url "https://files.pythonhosted.org/packages/20/ba/91d675e22c18bddad8edcc779db683d8addbe496c118daa34709cb851ec5/kollabor_ai-0.16.0-py3-none-any.whl"
-    sha256 "5ec1e10aaf2d19866ecd0cc38e0dc6949f4dc21a0ca8d187f8a3d6e1eca7cbb7"
+    url "https://files.pythonhosted.org/packages/7a/1a/2125a42e145340fadf425f6248ea9ad145a3c549350e0426a62093403549/kollabor_ai-0.16.1-py3-none-any.whl"
+    sha256 "038b146f0d3a4b436b36491c1b8894ea0aef20dc4a30b8e71f443a929e13734e"
   end
 
   resource "kollabor-config" do
-    url "https://files.pythonhosted.org/packages/ea/79/1361011ac5ec96004deb2216fb6b776663cc44e93d6a734c7afb0b388c7e/kollabor_config-0.16.0-py3-none-any.whl"
-    sha256 "d52d6e6d7efc4ddbd86a733027c7939084def1a9afe02d7fc8e0e734ed50e9ba"
+    url "https://files.pythonhosted.org/packages/45/0a/a4295a71036dc52541e2e8bea3ab20f21237ca1bc45d67c65b6b5b6c2b07/kollabor_config-0.16.1-py3-none-any.whl"
+    sha256 "15eadd4e05a882b8a5415ebf4eed7ebf1548b788ce6d8a526ae266f213415d07"
   end
 
   resource "kollabor-engine" do
-    url "https://files.pythonhosted.org/packages/cb/0a/6e5aab839e0cca37d95a1c043a2d66c1d5921d05f9305b7c9519a44d1f3b/kollabor_engine-0.16.0-py3-none-any.whl"
-    sha256 "7926c62893ff8616407176734a610082bca69f124cb5ca5a27803c7a018f8ec9"
+    url "https://files.pythonhosted.org/packages/9c/57/f392e0ef82c424dc08cf5916fddb4a68678943949554b1291da1f9e4fb7e/kollabor_engine-0.16.1-py3-none-any.whl"
+    sha256 "4c2408b82729f27a99445200b427ac1acdbcae443ba1d663bd82ae991f6ccfc5"
   end
 
   resource "kollabor-events" do
-    url "https://files.pythonhosted.org/packages/66/af/dbf14a142aed0a04efc0f90e7ecf586e80e60f5d6b808500a9c058ef3705/kollabor_events-0.16.0-py3-none-any.whl"
-    sha256 "253a6c246f9d1a1379ea8eb34677904bfb821384f834e925e0a2df28f39d4d57"
+    url "https://files.pythonhosted.org/packages/9b/b5/4407a1b184ff41b7907bbb8130568e7ec669cf42b882c642125fd17369bc/kollabor_events-0.16.1-py3-none-any.whl"
+    sha256 "a87fedc9d7f3cdec903a55a80a30a400b4103fad743936e134601543a97eb4db"
   end
 
   resource "kollabor-plugins" do
-    url "https://files.pythonhosted.org/packages/f2/65/baa69b8b9d8c0b9c7aeb823e4e5e5f79beab18f1979343b30209bc15b91b/kollabor_plugins-0.16.0-py3-none-any.whl"
-    sha256 "c3a8578f004b53b37698b486501cb2f7802020e03ce1ab356fc3f007742ee41e"
+    url "https://files.pythonhosted.org/packages/f4/8c/1b47feb0037e7aebe748fc316cf4275e2dfece660ff5a047ed1f3de06774/kollabor_plugins-0.16.1-py3-none-any.whl"
+    sha256 "6ba1521ae877400b9128adf83d3477f85b7367b6d8c442b2b03c5b8207431a49"
   end
 
   resource "kollabor-rpc" do
-    url "https://files.pythonhosted.org/packages/ca/b3/da41b859ac0be2623aac2b4f58a253784aef9a4616a28687dccfb248cf5d/kollabor_rpc-0.16.0-py3-none-any.whl"
-    sha256 "aa7a8eefea037fee676282ebfc1ce92d1fd2b9f69d2ce687ab32604c133f959a"
+    url "https://files.pythonhosted.org/packages/41/9d/8353d7aff2375685784b182bdedf0e59e213a5c1341a43be9cc1a2cac473/kollabor_rpc-0.16.1-py3-none-any.whl"
+    sha256 "39965e484660f214a11a5827c7a427562b87a3fa735bfb135c0af5f23118fef1"
   end
 
   resource "kollabor-tui" do
-    url "https://files.pythonhosted.org/packages/3c/68/903f3ce08bda8b94dc8bfe6f3b4a4aa7e77258d12ab4a77f3372e71065da/kollabor_tui-0.16.0-py3-none-any.whl"
-    sha256 "6850a45e2f9645ace850f5cde64917d9a167e304a92c2638fe96c0e8322509ad"
+    url "https://files.pythonhosted.org/packages/59/cb/600ced3d6429bad687ed78343d0919ed837f8f1878ab0f0620045fa0537e/kollabor_tui-0.16.1-py3-none-any.whl"
+    sha256 "6ab082e7d5ec9a469193fa6e02ff2e968f8d175acd6bb3a7d89f993841cb06ef"
   end
 
   resource "kollabor-webui" do
-    url "https://files.pythonhosted.org/packages/39/63/4a69a04998f431d4ad8f15f3af1bae58b0264c4c77bf6c7da77e759f0af9/kollabor_webui-0.16.0-py3-none-any.whl"
-    sha256 "0561686889f4e22ef1d16988988bebedc9cd72e884dc109ace9d8971fa27c2f4"
+    url "https://files.pythonhosted.org/packages/22/ba/ca952f68ae29d0d88248bfa9900b5a68cc266c2b93bc4019c9267735abb8/kollabor_webui-0.16.1-py3-none-any.whl"
+    sha256 "3f7c1f4703f224daee3bd3ca00ac3dc9251f7dedd1ea1fbe55f717d50e1dc7fb"
   end
 
   resource "mcp" do
