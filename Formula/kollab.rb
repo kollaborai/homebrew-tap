@@ -13,7 +13,7 @@ class Kollab < Formula
   depends_on arch: :arm64
   depends_on "libsodium"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.14"
 
   preserve_rpath
 
@@ -28,8 +28,8 @@ class Kollab < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/64/91/11b89f45ca486252dd67dd5f3231fec04bf5518da39a95cb3997619f17fb/aiohttp-3.14.5-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "d079c0a0135c36e7beb6f1c88087c8f108dc5891cdd0b5eafa778421bda70ed2"
+    url "https://files.pythonhosted.org/packages/ce/b5/05b8ac39a76ff4bca89f42a4c2471560c71f894ff6e4bc16158c951874e3/aiohttp-3.14.5-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "c32e26310cc10e547f53cd13d39a369034f69dcb7d749d5cb0e5f67bc196b6ba"
   end
 
   resource "aiosignal" do
@@ -68,8 +68,8 @@ class Kollab < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/54/7d/16e5a096677b5e313ca80cd5e5170efa3ea44624a82bb111925522da64b1/cffi-2.1.1-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "f81b3b8f3d4e343550fa4baa0e479bba9f2d29ce9c2e9b51d1ce1718d7442fcf"
+    url "https://files.pythonhosted.org/packages/b3/a9/9db617d05d7367c1ad0ab00b3aa6e6f9281edd689b4ee9ea0e5a84e89c97/cffi-2.1.1-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "661c298b4821edebead0c91edd2b00374d67ad7c5a1f7a91d4442633b79d6a72"
   end
 
   resource "click" do
@@ -93,8 +93,8 @@ class Kollab < Formula
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/2b/94/5c8a2b50a496b11dd519f4a24cb5496cf125681dd99e94c604ccdea9419a/frozenlist-1.8.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "f833670942247a14eafbb675458b4e61c82e002a148f49e68257b79296e865c4"
+    url "https://files.pythonhosted.org/packages/a1/93/72b1736d68f03fda5fdf0f2180fb6caaae3894f1b854d006ac61ecc727ee/frozenlist-1.8.0-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "4970ece02dbc8c3a92fcc5228e36a3e933a01a999f7094ff7c23fbd2beeaa67c"
   end
 
   resource "h11" do
@@ -113,8 +113,8 @@ class Kollab < Formula
   end
 
   resource "httptools" do
-    url "https://files.pythonhosted.org/packages/da/ed/0916b8b7ebd1deeaf22acba71b68c57b4b6b69aa1918f3812dea208b4276/httptools-0.9.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "f9ccc9884241efceb4547a92955d128574c864681f11b7ea3ecbde295fafbe8b"
+    url "https://files.pythonhosted.org/packages/31/39/0965023968452245ece67b161adbf7c5652f8d0697ac69312f9d21849411/httptools-0.9.0-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "1a4050a651e1f2faf05eb028ce9f2168abbcee9e24b209f5c1f2eb96d8c569e4"
   end
 
   resource "httpx" do
@@ -152,14 +152,9 @@ class Kollab < Formula
     sha256 "99e3dc0060c5cbe8fcd1cdb36258e2a65ca40f1566b2033b12abb1bb44dd3c30"
   end
 
-  resource "jeepney" do
-    url "https://files.pythonhosted.org/packages/b2/a3/e137168c9c44d18eff0376253da9f1e9234d0239e0ee230d2fee6cea8e55/jeepney-0.9.0-py3-none-any.whl"
-    sha256 "97e5714520c16fc0a45695e5365a2e11b81ea79bba796e26f9f1d178cb182683"
-  end
-
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/0e/5e/0de4c6f84ffefa6809ffc2d550b9a314365acf7e7ec9b6c7375d49047900/jiter-0.17.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "61aed66ee042b3b49ef85fdf75714234d055d89d8496ac1c6e47f89e7a30d5e4"
+    url "https://files.pythonhosted.org/packages/ea/81/67b58647560bc82a4490d722caa8561d7a86a9f45d4fa620b7e5fe282c7a/jiter-0.17.0-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "0619d806e260ecf0c2a64521942c94af5d547c9ec99b55ae4f51b538b5576a76"
   end
 
   resource "jsonschema" do
@@ -233,8 +228,8 @@ class Kollab < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/c9/84/31444ef07ec13a33c42c2772d986129e137e69c4beb89ca64f2138988145/multidict-7.1.0-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "f8e95c95039eab6a2dad8c83c38ab87fc5431d28849e0c8a7e2a4e70ba38710d"
+    url "https://files.pythonhosted.org/packages/6b/e3/ff58ecad5161baa98dec05716e2745449446f2424a9c727464bf452f7fd1/multidict-7.1.0-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "33376418ab2846b931a72b36cfa16810befc4f49485d0b3f4dc054a4d6d00038"
   end
 
   resource "openai" do
@@ -253,8 +248,8 @@ class Kollab < Formula
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/25/88/1d7df7201750b37765ef2b23bc1c526c028dadde80afa0f57a118fc01182/propcache-0.5.4-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "87a3caecf8095e48dc72f84bfa42e23a848cf410cc9cc13031fba4869b706a21"
+    url "https://files.pythonhosted.org/packages/e2/22/b533b493d7025456f44518b33e53e000021a20fe7c27b88cf3d341df7186/propcache-0.5.4-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "1d759d05634f1b038fb625a66662a8c85e5a8fec912da381b5149ddac107482b"
   end
 
   resource "psutil" do
@@ -273,8 +268,8 @@ class Kollab < Formula
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/db/a3/f8b1b39349c33037c73d7a1b794c9c29d8f07d5bd2b74399c1375a529cc6/pydantic_core-2.50.1-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "e8e1d6ce820aa23317e8209a86bd65a540973c12dc7552b48a4f6c8e9926815e"
+    url "https://files.pythonhosted.org/packages/94/40/15c06410c9b7b8da5805d27b64e09bd3f900e986728106db2689dbc51513/pydantic_core-2.50.1-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "4df197990c15b5a37c5a277d131d9f2c67de6133f2e5dafd80d9bba4b99f46f9"
   end
 
   resource "pydantic-settings" do
@@ -303,8 +298,8 @@ class Kollab < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/89/a0/6cf41a19a1f2f3feab0e9c0b74134aa2ce6849093d5517a0c550fe37a648/pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "fc09d0aa354569bc501d4e787133afc08552722d3ab34836a80547331bb5d4a0"
+    url "https://files.pythonhosted.org/packages/bd/9c/4d95bb87eb2063d20db7b60faa3840c1b18025517ae857371c4dd55a6b3a/pyyaml-6.0.3-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "34d5fcd24b8445fadc33f9cf348c1047101756fd760b4dacb5c3e99755703310"
   end
 
   resource "redis" do
@@ -323,13 +318,8 @@ class Kollab < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/90/81/ac6a0d064982251856ce009c9e1dd51a34110b3c055aa7d1aad18b4899a3/rpds_py-2026.9.1-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "e21c1429e205828ea886a2293a4a2c8e01f4c25d9893ca330e97a6cf73f52e7b"
-  end
-
-  resource "secretstorage" do
-    url "https://files.pythonhosted.org/packages/b7/46/f5af3402b579fd5e11573ce652019a67074317e18c1935cc0b4ba9b35552/secretstorage-3.5.0-py3-none-any.whl"
-    sha256 "0ce65888c0725fcb2c5bc0fdb8e5438eece02c523557ea40ce0703c266248137"
+    url "https://files.pythonhosted.org/packages/04/37/b751de2b59b0197a1d92a5dd491de88e8a5e928c2e6562581974f1e85263/rpds_py-2026.9.1-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "3f0e9ac28fc067d4d34b88ae43c48e9489455c97fee9633d851f7eeed5a05d35"
   end
 
   resource "sniffio" do
@@ -368,8 +358,8 @@ class Kollab < Formula
   end
 
   resource "uvloop" do
-    url "https://files.pythonhosted.org/packages/05/98/04e766a6de99e6f7f955ecb7829e8d5a557de3427cb85be2236de54dda0c/uvloop-0.23.0-cp312-cp312-macosx_10_13_universal2.whl"
-    sha256 "93935ab27b6eaef4c3e5489aebc84284f0644592f7ab516df60ee1b27eaf5eb3"
+    url "https://files.pythonhosted.org/packages/4e/a4/00e85345871c59c834a23c136c1771205856028ecc8ba940b3951178e59b/uvloop-0.23.0-cp314-cp314-macosx_10_15_universal2.whl"
+    sha256 "b90397a50ad6332ed3e459c648ac20d182cce24a557354363ad85fc9ea4a17cd"
   end
 
   resource "watchfiles" do
@@ -378,13 +368,13 @@ class Kollab < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/3b/6e/82c78b595aee05be76a7ee78539323da1593c1848e4fef51c704c696568f/websockets-17.2-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "a81e19710d48da88653473b6b9c366d47e99fe4f58e37ce415be47966748f31f"
+    url "https://files.pythonhosted.org/packages/5c/09/1abf942723c0001d9c2fca1551907dade6304517b982b0bf10bba107fa81/websockets-17.2-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "06e46da092bca3a52e98f0458c66b247993ce501a07cd09c858be3296511ab7d"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/be/dd/ee38aec8e09fdf957e50d4085453fbe202f56c6c3b4cf07b81cdb4f09ee9/yarl-1.25.1-cp312-cp312-macosx_11_0_arm64.whl"
-    sha256 "e029648f9c951db30e98a7d7ec90835db88ec4b32820efe2a9bdc2287e032eb6"
+    url "https://files.pythonhosted.org/packages/6e/bb/dda344765ffd3430afe1a1c66c866a57fae67786537d4f14607df6505ac1/yarl-1.25.1-cp314-cp314-macosx_11_0_arm64.whl"
+    sha256 "7a5c3115595995779ee21f2567035793911c3802a43c74f3fbb0314929ec67ac"
   end
 
   def install
@@ -400,8 +390,8 @@ class Kollab < Formula
       end
     end
 
-    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
-    system formula_opt_libexec("python@3.12")/"bin/python", "-m", "pip", "--python=#{venv.root}/bin/python",
+    venv = virtualenv_create(libexec, "python3.14", system_site_packages: false)
+    system formula_opt_libexec("python@3.14")/"bin/python", "-m", "pip", "--python=#{venv.root}/bin/python",
            "install",
            "--no-index", "--find-links=#{wheelhouse}", "--no-compile", "kollab==#{version}"
     bin.install_symlink libexec/"bin/kollab" => "kollab"
