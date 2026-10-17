@@ -31,8 +31,8 @@ from pathlib import Path
 
 
 TARGET_PLATFORM = "macosx_11_0_arm64"
-TARGET_PYTHON_VERSION = "312"
-TARGET_ABI = "cp312"
+TARGET_PYTHON_VERSION = "314"
+TARGET_ABI = "cp314"
 
 PROJECT = "kollab"
 
